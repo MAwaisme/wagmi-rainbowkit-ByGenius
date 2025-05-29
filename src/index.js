@@ -18,11 +18,11 @@ import {
 } from "@tanstack/react-query";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const apiKey = process.env.REACT_APP_PROJECT_KEY;
-console.log('API Key:', apiKey);
+// const apiKey = process.env.REACT_APP_PROJECT_KEY;
+// console.log('API Key:', apiKey);
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
-  projectId: process.env.REACT_APP_PROJECT_KEY,
+  projectId: "14808831369ecdaaab7b8869eb13c6b0",
   chains: [sepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
