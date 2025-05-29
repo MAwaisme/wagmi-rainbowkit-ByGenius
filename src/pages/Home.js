@@ -1,13 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
 import { WalletButton } from '@rainbow-me/rainbowkit';
 import { useAccount, useAccountEffect, useDisconnect, useReadContracts, useSignMessage, useWriteContract, useWaitForTransactionReceipt, useConfig, useGasPrice } from 'wagmi';
 import { waitForTransactionReceipt } from "@wagmi/core";
+import Environment from '../utils/Environment';
 import { useEffect, useState } from 'react';
-import Environment from './utils/Environment';
-import abi from './utils/abi.json';
+import abi from '../utils/abi.json';
 
-function App() {
+function Home() {
 
     const { disconnect } = useDisconnect()
     const { address } = useAccount()
@@ -48,7 +46,7 @@ function App() {
         },
     })
     const usdtContract = {
-        address: Environment?.usdt,
+        address: Environment?.stakingToken,
         abi: abi,
     }
     const { data: allowanceData, refetch } = useReadContracts({
@@ -60,7 +58,7 @@ function App() {
             {
                 ...usdtContract,
                 functionName: 'allowance',
-                args: [address, Environment.usdt],
+                args: [address, Environment.stakingContract],
             },
         ],
         query: { enabled: !!address, gcTime: Infinity }, // This ensures the query will only execute if address is truthy
@@ -89,7 +87,7 @@ function App() {
             ...usdtContract,
             functionName: 'approve',
             args: [
-                Environment.usdt,
+                Environment.stakingContract,
                 apprAmount * 1e18,
             ],
         },
@@ -144,4 +142,4 @@ function App() {
     );
 }
 
-export default App;
+export default Home;

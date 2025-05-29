@@ -22,7 +22,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 console.log('API Key:', apiKey);
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
-  projectId: process.env.REACT_APP_API_KEY,
+  projectId: process.env.REACT_APP_PROJECT_KEY,
   chains: [sepolia],
   ssr: true, // If your dApp uses server side rendering (SSR)
 });
@@ -33,10 +33,10 @@ root.render(
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
-    <App />
-      </RainbowKitProvider>
-    </QueryClientProvider>
-  </WagmiProvider>
+          <App />
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   </React.StrictMode>
 );
 
