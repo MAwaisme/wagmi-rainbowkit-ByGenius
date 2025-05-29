@@ -18,7 +18,7 @@ import {
 } from "@tanstack/react-query";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.REACT_APP_PROJECT_KEY;
 console.log('API Key:', apiKey);
 const config = getDefaultConfig({
   appName: 'My RainbowKit App',
