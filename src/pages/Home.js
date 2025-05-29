@@ -104,7 +104,7 @@ function Home() {
     return (
         <div className="App">
             <header className="App-header">
-                <h3>Sepolia Network</h3>
+                <h3>Sepolia Network:- {address ? address : `Address not found! ${address}`}</h3>
                 <div className='flex'>
                     {address ?
                         <button onClick={disconnect} className='button'>
